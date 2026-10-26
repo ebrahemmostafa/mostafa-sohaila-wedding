@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>RSVPs · Mostafa &amp; Sohaila</title>
+<link rel="icon" href="assets/images/favicon.png">
+<link rel="stylesheet" href="css/google-fonts.css">
+<style>
+:root{--navy:#3a0a14;--navy-2:#5c1424;--card:#4a0d1a;--gold:#D6A84D;--gold-2:#E6C27A;--cream:#F5EBD6;--muted:#c7a9b0;--green:#6fcf97;--red:#e98a8a;--line:rgba(214,168,77,.35)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(120% 60% at 50% 0%,#5c1424 0%,var(--navy) 60%);color:var(--cream);font-family:"Cormorant Garamond","Amiri",Georgia,serif;font-size:18px}
+.wrap{max-width:760px;margin:0 auto;padding:28px 16px 60px}
+header{text-align:center;margin-bottom:22px}
+header .kicker{color:var(--gold);font-size:13px;letter-spacing:.32em;text-transform:uppercase;opacity:.9}
+header h1{font-family:"Great Vibes",cursive;font-weight:400;font-size:48px;margin:4px 0 2px;background:linear-gradient(180deg,#F3D99B,#D6A84D 60%,#B9883A);-webkit-background-clip:text;background-clip:text;color:transparent}
+header .sub{color:var(--muted);font-size:15px}
+.orn{display:flex;align-items:center;justify-content:center;gap:10px;width:170px;margin:12px auto 0}
+.orn i{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn i:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.orn b{width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg)}
+.panel{background:rgba(74,13,26,.75);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 14px 40px rgba(0,0,0,.3)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.stat{text-align:center;padding:14px 6px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)}
+.stat .n{font-family:"Cormorant Garamond",serif;font-size:38px;line-height:1;color:var(--gold-2)}
+.stat .l{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.stat.ok .n{color:var(--green)}.stat.no .n{color:var(--red)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.tools input[type=search]{flex:1 1 200px;min-width:0;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--cream);font:inherit;font-size:16px;outline:none}
+.tools input[type=search]:focus{border-color:var(--gold)}
+.tabs{display:flex;gap:6px}
+.btn{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--cream);font:inherit;font-size:15px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--gold)}
+.btn.on{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn.gold{background:linear-gradient(180deg,#E6C27A,#C9973F);border:0;color:var(--navy);font-weight:700;padding:10px 34px}
+.list{display:grid;gap:10px}
+.item{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:rgba(255,255,255,.03)}
+.item .top{display:flex;align-items:center;gap:10px}
+.item .name{font-weight:700;font-size:19px;flex:1;min-width:0;overflow-wrap:anywhere}
+.badge{font-size:13px;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.attending{background:rgba(111,207,151,.15);color:var(--green);border:1px solid rgba(111,207,151,.4)}
+.badge.declined{background:rgba(233,138,138,.13);color:var(--red);border:1px solid rgba(233,138,138,.4)}
+.item .msg{margin-top:8px;line-height:1.8;color:#EEE1C5;white-space:pre-wrap;overflow-wrap:anywhere;unicode-bidi:plaintext}
+.item .meta{margin-top:6px;font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center}
+.item .del{margin-inline-start:auto;background:none;border:0;color:var(--muted);cursor:pointer;font:inherit;font-size:13px;padding:2px 4px}
+.item .del:hover{color:var(--red)}
+.empty{text-align:center;color:var(--muted);padding:30px 10px}
+.status-line{text-align:center;color:var(--muted);font-size:13px;margin-top:14px}
+.login{max-width:380px;margin:40px auto 0;text-align:center}
+.login p{color:var(--muted);margin:0 0 14px}
+.login input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--cream);font-family:"Cormorant Garamond",serif;font-size:26px;letter-spacing:.5em;text-align:center;direction:ltr;margin-bottom:10px;outline:none}
+.login input:focus{border-color:var(--gold)}
+.login .err{color:var(--red);min-height:1.4em;font-size:15px;margin-bottom:6px}
+[hidden]{display:none!important}
+@media (max-width:480px){.stat .n{font-size:32px}header h1{font-size:40px}.stat .l{font-size:11px;letter-spacing:.06em}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">RSVP Responses</div>
+    <h1>Mostafa &amp; Sohaila</h1>
+    <div class="sub">Sunday, 29 November 2026 · Sea Garden – Life Eye Resort</div>
+    <div class="orn"><i></i><b></b><i></i></div>
+  </header>
+
+  <form class="panel login" id="login" autocomplete="off">
+    <p>Enter the passcode to view the responses</p>
+    <input type="password" id="pass" inputmode="numeric" autocomplete="off" maxlength="32" placeholder="••••••" required>
+    <div class="err" id="loginErr"></div>
+    <button class="btn gold" type="submit">Sign in</button>
+  </form>
+
+  <main id="app" hidden>
+    <div class="stats">
+      <div class="stat"><div class="n" id="sTotal">0</div><div class="l">Total</div></div>
+      <div class="stat ok"><div class="n" id="sYes">0</div><div class="l">Attending</div></div>
+      <div class="stat no"><div class="n" id="sNo">0</div><div class="l">Declined</div></div>
+    </div>
+    <div class="panel">
+      <div class="tools">
+        <input type="search" id="q" placeholder="Search name or message">
+        <div class="tabs">
+          <button class="btn on" data-f="all" type="button">All</button>
+          <button class="btn" data-f="attending" type="button">Attending</button>
+          <button class="btn" data-f="declined" type="button">Declined</button>
+        </div>
+        <button class="btn" id="csv" type="button">Export CSV</button>
+        <button class="btn" id="refresh" type="button">Refresh</button>
+      </div>
+      <div class="list" id="list"></div>
+    </div>
+    <div class="status-line" id="statusLine"></div>
+    <div class="status-line"><button class="btn" id="logout" type="button">Sign out</button></div>
+  </main>
+</div>
+
+<script>
+/* Same project as the invitation. Reading goes through get_invitation_rsvps(), which only answers
+   with the right passcode and locks after repeated wrong tries. */
+var CONFIG = {
+  supabaseUrl: "https://jcuqwcwkowtjxcykstlf.supabase.co",
+  anonKey: "sb_publishable_BFtrH3u_sv9zat6B9SALyw_nS7Pajaa",
+  eventSlug: "mostafa-sohaila"
+};
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var rows = [], filter = "all", code = "", timer = null;
+  var STORE = "rsvp-pass-" + CONFIG.eventSlug;
+  function num(n) { return String(n); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function when(iso) {
+    try { return new Date(iso).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit", hour12: true }); }
+    catch (e) { return iso; }
+  }
+  // every RPC answers {ok:true,...} or {ok:false,error:"invalid"|"locked"}
+  function rpc(fn, args) {
+    return fetch(CONFIG.supabaseUrl.replace(/\/$/, "") + "/rest/v1/rpc/" + fn, {
+      method: "POST",
+      headers: { "apikey": CONFIG.anonKey, "Authorization": "Bearer " + CONFIG.anonKey, "Content-Type": "application/json" },
+      body: JSON.stringify(args)
+    }).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    }).then(function (d) {
+      if (!d || !d.ok) { var e = new Error((d && d.error) || "failed"); e.code = d && d.error; throw e; }
+      return d;
+    });
+  }
+
+  function render() {
+    var yes = rows.filter(function (r) { return r.status === "attending"; }).length;
+    $("sTotal").textContent = num(rows.length);
+    $("sYes").textContent = num(yes);
+    $("sNo").textContent = num(rows.length - yes);
+    var q = $("q").value.trim().toLowerCase();
+    var shown = rows.filter(function (r) {
+      if (filter !== "all" && r.status !== filter) return false;
+      return !q || (r.name + " " + (r.message || "")).toLowerCase().indexOf(q) !== -1;
+    });
+    $("list").innerHTML = shown.length ? shown.map(function (r) {
+      var yesR = r.status === "attending";
+      return '<div class="item"><div class="top"><div class="name">' + esc(r.name) + '</div>' +
+        '<span class="badge ' + (yesR ? "attending" : "declined") + '">' + (yesR ? "Attending" : "Declined") + '</span></div>' +
+        (r.message ? '<div class="msg">' + esc(r.message) + '</div>' : '') +
+        '<div class="meta"><span>' + esc(when(r.created_at)) + '</span><span>' + (r.lang === "en" ? "EN" : "AR") + '</span>' +
+        '<button class="del" type="button" data-id="' + esc(r.id) + '">Delete</button></div></div>';
+    }).join("") : '<div class="empty">' + (rows.length ? "No matches" : "No responses yet") + '</div>';
+  }
+
+  function load(quiet) {
+    if (!quiet) $("statusLine").textContent = "Loading…";
+    return rpc("get_invitation_rsvps", { p_slug: CONFIG.eventSlug, p_passcode: code }).then(function (d) {
+      rows = d.rows || [];
+      render();
+      $("statusLine").textContent = "Last updated " + new Date().toLocaleTimeString("en-GB", { hour: "numeric", minute: "2-digit", hour12: true }) + " · refreshes every minute";
+    });
+  }
+
+  function showLogin(msg) {
+    clearInterval(timer); rows = []; code = "";
+    try { sessionStorage.removeItem(STORE); } catch (e) {}
+    $("app").hidden = true; $("login").hidden = false;
+    $("loginErr").textContent = msg || ""; $("statusLine").textContent = "";
+    $("pass").value = ""; $("pass").focus();
+  }
+
+  function start(c) {
+    code = c;
+    $("loginErr").textContent = "";
+    return load().then(function () {
+      try { sessionStorage.setItem(STORE, code); } catch (e) {}
+      $("login").hidden = true; $("app").hidden = false;
+      clearInterval(timer); timer = setInterval(function () { load(true).catch(function () {}); }, 60000);
+    }).catch(function (e) {
+      showLogin(e.code === "invalid" ? "Wrong passcode" :
+                e.code === "locked" ? "Too many wrong attempts. Try again in 15 minutes." :
+                "Couldn't reach the database");
+    });
+  }
+
+  $("login").addEventListener("submit", function (e) { e.preventDefault(); var c = $("pass").value.trim(); if (c) start(c); });
+  $("q").addEventListener("input", render);
+  document.querySelectorAll(".tabs .btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".tabs .btn").forEach(function (x) { x.classList.toggle("on", x === b); });
+      filter = b.getAttribute("data-f"); render();
+    });
+  });
+  $("refresh").addEventListener("click", function () { load().catch(function () { $("statusLine").textContent = "Couldn't refresh"; }); });
+  $("logout").addEventListener("click", function () { showLogin(""); });
+  $("list").addEventListener("click", function (e) {
+    var b = e.target.closest(".del"); if (!b) return;
+    var r = rows.filter(function (x) { return x.id === b.getAttribute("data-id"); })[0];
+    if (!r || !confirm("Delete the response from \"" + r.name + "\"? This can't be undone.")) return;
+    rpc("delete_invitation_rsvp", { p_slug: CONFIG.eventSlug, p_passcode: code, p_id: r.id }).then(function () { return load(true); })
+      .catch(function () { alert("Couldn't delete"); });
+  });
+  $("csv").addEventListener("click", function () {
+    var head = ["Name", "Status", "Message", "Language", "Time"];
+    var lines = [head].concat(rows.map(function (r) {
+      return [r.name, r.status === "attending" ? "Attending" : "Declined", r.message || "", r.lang || "", new Date(r.created_at).toLocaleString("en-GB")];
+    })).map(function (cols) {
+      return cols.map(function (c) {
+        c = String(c);
+        if (/^[=+\-@\t\r]/.test(c)) c = "'" + c; // stop Excel from running a guest-typed formula
+        return '"' + c.replace(/"/g, '""') + '"';
+      }).join(",");
+    });
+    var blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "rsvps-" + CONFIG.eventSlug + ".csv"; a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  if (CONFIG.supabaseUrl.indexOf("http") !== 0) { $("loginErr").textContent = "This page is not connected to Supabase yet"; return; }
+  // remembered only until this tab is closed
+  var saved = null; try { saved = sessionStorage.getItem(STORE); } catch (e) {}
+  if (saved) start(saved); else $("pass").focus();
+})();
+</script>
+</body>
+</html>
